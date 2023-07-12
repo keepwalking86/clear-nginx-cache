@@ -1,0 +1,22 @@
+<form id="clearCacheForm" action="/clear-cache" method="GET">
+  <label for="urls">URLs:</label><br>
+  <textarea id="urls" name="url[]" rows="4" cols="50"></textarea><br>
+  <input type="submit" value="Clear Cache">
+</form>
+
+<script>
+  document.getElementById("clearCacheForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    var urlsInput = document.getElementById("urls");
+    var urls = urlsInput.value.split("\n");
+
+    var encodedUrls = urls.map(function(url) {
+      return encodeURIComponent(url.trim());
+    });
+
+    var clearCacheUrl = "/clear-cache?url=" + encodedUrls.join("&url=");
+
+    window.location.href = clearCacheUrl;
+  });
+</script>
