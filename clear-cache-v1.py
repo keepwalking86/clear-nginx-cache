@@ -53,4 +53,4 @@ def clear_cache():
     return "Cache cleared for URL: {}".format(url)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
