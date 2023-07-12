@@ -1,0 +1,8 @@
+[Unit]
+Description = Clearing Nginx static cache
+After = network.target
+[Service]
+User = nginx
+ExecStart = /usr/bin/python3 /opt/cache/clear-cache-v1.py
+[Install]
+WantedBy = multi-user.target
